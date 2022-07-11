@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "imdb-fastapi"
+version = "0.1.0"
+description = ""
+authors = ["jaykakadiya18 <jaykakadiya2014@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyglet = "^1.5.26"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^22.6.0"
+mypy = "^0.961"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
