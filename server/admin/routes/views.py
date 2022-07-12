@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Body, Request, HTTPException, status, Depends
+from fastapi import APIRouter, Body, HTTPException, status
 from typing import List
 from fastapi.security import HTTPBearer
 from server.admin.models.schema import (
@@ -7,7 +7,6 @@ from server.admin.models.schema import (
 from server.admin.models.database import (
     fetch_user, create_user
 )
-# from server.auth.auth_handler import signJWT, decodeJWT
 from passlib.context import CryptContext
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
@@ -74,6 +73,9 @@ Auth_handler = JWTBearer([])
 
 @router.post("/signup", status_code=status.HTTP_201_CREATED, response_description="Authorization Token", response_model=Token)
 async def signup(user_data: UserSchema):
+    """
+    Create User for access database
+    """
     # Check if email address already exists in database
     user = await fetch_user({'email': user_data.email})
     if user:
@@ -86,6 +88,9 @@ async def signup(user_data: UserSchema):
 
 @router.post("/login", response_description="Authorization Token", response_model=Token)
 async def user_login(UserData: UserLoginSchema = Body(...)):
+    """
+    Token valid upto next 30 mins...
+    """
     user = await fetch_user({'email': UserData.email}, True)
     # Verify password
     if verify_password(UserData.password, user['hashed_password']):

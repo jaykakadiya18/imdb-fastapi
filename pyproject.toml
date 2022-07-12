@@ -6,12 +6,17 @@ authors = ["jaykakadiya18 <jaykakadiya2014@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-pyglet = "^1.5.26"
+fastapi = "0.63.0"
+motor = "2.2.0"
+pydantic = "1.9.0"
+python-decouple = "3.4"
+uvicorn = "0.13.4"
+pytest = "6.2.2"
+pathlib = "1.0.1"
+requests = "pyjwt"
+passlib = "bcrypt"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
-black = "^22.6.0"
-mypy = "^0.961"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

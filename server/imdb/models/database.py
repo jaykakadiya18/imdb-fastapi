@@ -2,7 +2,7 @@ from server.connections import database
 from fastapi.encoders import jsonable_encoder
 from bson.objectid import ObjectId
 
-# Get collection from database instance
+# Get collection from database
 collection = database.get_collection("movies")
 
 # Add New Movie
@@ -26,16 +26,14 @@ async def findone_document(name: str) -> dict:
         
         async for document in collection.find({'name': { "$regex": name.capitalize()}}):
             mydocument.append(document)
+        if len(mydocument) == 0:
+            raise "Data idn't match from the database!!! TIP:Try one word of your movie. I will guess it for you!!!"
+
         return mydocument
     except:
-        mydocument = []
-        async for document in collection.find():
-            mydocument.append(document)
+        mydocument = "TIP: Try one word of your movie. I will guess it for you!!!"
 
         return mydocument
-
-    # loop = client.get_io_loop()
-    # loop.run_until_complete(do_find())
 
 
 async def fetch_documents_all(movie: list) -> list:

@@ -1,5 +1,5 @@
-from typing import Optional, List
-from fastapi import APIRouter, Body, Request, Depends, HTTPException
+from typing import Optional
+from fastapi import APIRouter, Depends, HTTPException
 from bson.objectid import ObjectId
 from server.imdb.models.schema import (
     MoviesSchema
@@ -28,47 +28,54 @@ async def search_movies(name: Optional[str] = None):
             `/movie?search=the wizard of oz`\n
             `/movie?sortby=oz`\n
             `/movie?search=the`\n
-            `/movie`\n
-            Returns:
-                dict: List of movies
+            `/movie` For All of the movies\n
+            
+
+            Get dict: List of movies
     """
     # print(type(data))
     movie = await findone_document(name)
-    return {"Data Found": str(movie)}
+    return {"Movies": str(movie)}
 
 
 
 @router.post("/", dependencies=[Depends(Auth_handler)])
 async def add_movies(data: MoviesSchema):
-    # Create document in MongoDB
-    movie = await create_document(data)
+    """
+    Add movie in database
+    """
+    movie = await create_document(data) #Data add in movies database
     return {"Data Added": movie}
 
-@router.put("/{movie_id}", dependencies=[Depends(Auth_handler)])
-async def update_movies(movie_id: str, data: MoviesSchema):
-
+@router.put("/{id}", dependencies=[Depends(Auth_handler)])
+async def update_movies(id: str, data: MoviesSchema):
+    """
+    Update movie in database
+    """
     # Check if ObjectID is valid
-    if not ObjectId.is_valid(movie_id):
-        raise HTTPException(status_code=400, detail=f"Invalid ID - {movie_id}")
+    if not ObjectId.is_valid(id):
+        raise HTTPException(status_code=400, detail=f"Invalid ID - {id}")
 
-    # Update document in MongoDB with help of MovieId/ObjectId
-    data = await update_document(movie_id, data)
+    #Data update in movies database
+    data = await update_document(id, data)
     if not data:
-        raise HTTPException(status_code=404, detail=f"Your id {movie_id} does not exist!!!")
+        raise HTTPException(status_code=404, detail=f"Your id {id} does not exist!!!")
     return {"Data Updated": data}
 
 
-@router.delete("/{movie_id}", dependencies=[Depends(Auth_handler)])
-async def delete_movies(movie_id: str):
-
+@router.delete("/{id}", dependencies=[Depends(Auth_handler)])
+async def delete_movies(id: str):
+    """
+    Delete movie in database
+    """
     # Check if ObjectID is valid
-    if not ObjectId.is_valid(movie_id):
-        raise HTTPException(status_code=400, detail=f"Invalid ID - {movie_id}")
+    if not ObjectId.is_valid(id):
+        raise HTTPException(status_code=400, detail=f"ID - {id} is Invalid")
     
-    # Delete document in MongoDB with help of MovieId/ObjectId
-    data = await delete_document(movie_id)
+    #Data delete in movies database
+    data = await delete_document(id)
     if not data:
-        raise HTTPException(status_code=500, detail=f"Failed to Delete - {movie_id}")
+        raise HTTPException(status_code=500, detail=f"ID is - {id} Failed to Delete")
     return {"Data Deleted": data}
    
 
