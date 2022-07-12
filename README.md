@@ -1,9 +1,7 @@
-# IMDB-API
+# IMDB-FASTAPI
 
-# testing the code
-- 1
-- 2
-- 3
+# Project requirement
+- MongoDB Connection url
 
 [x] does it
 [] all test complete
