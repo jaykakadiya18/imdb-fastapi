@@ -1,0 +1,5 @@
+1 - we can deploy the project on multiple servers and solve this scaling problem.
+
+2 - we can make a docker file, deploy it on Kubernetes and scale it up and down.
+
+3 - we can increase RAM and processor on the systems and solve the scaling problem.
