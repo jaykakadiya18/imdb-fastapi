@@ -28,6 +28,9 @@ run project
  https://imdb-fastapi.herokuapp.com/
 ```
 - Signup (Admin)
+-- username
+-- username
+-- username
 ```shell
  https://imdb-fastapi.herokuapp.com/accounts/signup
 ```
