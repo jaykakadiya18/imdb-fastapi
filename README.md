@@ -28,21 +28,33 @@ run project
  https://imdb-fastapi.herokuapp.com/
 ```
 - Signup (Admin)
--- username
--- username
--- username
+- 1 username
+- 2 email
+- 3 password
 ```shell
  https://imdb-fastapi.herokuapp.com/accounts/signup
 ```
 - Login (Admin)
+- 1 email
+- 2 password
 ```shell
  https://imdb-fastapi.herokuapp.com/accounts/login
 ```
 - Add Movie (Admin)
+- 1 popularity
+- 2 director
+- 3 genre
+- 4 imdb_score
+- 5 name
 ```shell
  https://imdb-fastapi.herokuapp.com/imdb/movies/{id}
 ```
 - Update Movie (Admin)
+- 1 popularity
+- 2 director
+- 3 genre
+- 4 imdb_score
+- 5 name
 ```shell
  https://imdb-fastapi.herokuapp.com/imdb/movies/{id}
 ```
