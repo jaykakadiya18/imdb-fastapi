@@ -3,8 +3,8 @@
 # Project requirement
 - MongoDB Connection url
 
-[x] does it
-[] all test complete
+- Access [docs](https://imdb-fastapi.herokuapp.com/docs)
+- Access [redocs](https://imdb-fastapi.herokuapp.com/redoc)
 
 ---
 ## How to run in local env:
@@ -31,4 +31,4 @@ run project
  OR
  docker run -d -p 8000:80 imdb-test
 ```
-- Access [docs](http://127.0.0.1:8000/docs)
+
