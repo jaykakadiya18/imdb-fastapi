@@ -22,14 +22,37 @@ run project
  python main.py
 ```
 ---
-
+## ENDPOINTS
+- root
 ```shell
- docker build . -t imdb-test
+ https://imdb-fastapi.herokuapp.com/
 ```
-- run docker container
+- Signup (Admin)
 ```shell
- docker run -d -p 8080:80 imdb-test
- OR
- docker run -d -p 8000:80 imdb-test
+ https://imdb-fastapi.herokuapp.com/accounts/signup
+```
+- Login (Admin)
+```shell
+ https://imdb-fastapi.herokuapp.com/accounts/login
+```
+- Add Movie (Admin)
+```shell
+ https://imdb-fastapi.herokuapp.com/imdb/movies/{id}
+```
+- Update Movie (Admin)
+```shell
+ https://imdb-fastapi.herokuapp.com/imdb/movies/{id}
+```
+- Delete Movie (Admin)
+```shell
+ https://imdb-fastapi.herokuapp.com/imdb/movies/{id}
+```
+- Search Movie (Admin)
+```shell
+ https://imdb-fastapi.herokuapp.com/imdb/movies/search
+```
+- Search Movie (User)
+```shell
+ https://imdb-fastapi.herokuapp.com/imdb/movies/search
 ```
 
