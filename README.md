@@ -24,7 +24,7 @@ run project
 ---
 ## ENDPOINTS
 - root
-```shell
+```http
  https://imdb-fastapi.herokuapp.com/
 ```
 - Signup (Admin)
