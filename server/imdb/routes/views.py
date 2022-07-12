@@ -22,13 +22,13 @@ async def search_movies(name: Optional[str] = None):
         You you don't know full name of movie then       
 
             Examples of search you can :
-            `/movie?search=The Wizard of Oz`\n
-            `/movie?search=Wizard`\n
-            `/movie?search=Wizard of Oz`\n
-            `/movie?search=the wizard of oz`\n
-            `/movie?sortby=oz`\n
-            `/movie?search=the`\n
-            `/movie` For All of the movies\n
+            `/movie/search?name=The Wizard of Oz`\n
+            `/movie/search?name=Wizard`\n
+            `/movie/search?name=Wizard of Oz`\n
+            `/movie/search?name=the wizard of oz`\n
+            `/movie/search?name=oz`\n
+            `/movie/search?name=the`\n
+            `/movie/search?name=` For All of the movies\n
             
 
             Get dict: List of movies
