@@ -31,13 +31,13 @@ run project
 - 1 username
 - 2 email
 - 3 password
-```shell
+```http
  https://imdb-fastapi.herokuapp.com/accounts/signup
 ```
 - Login (Admin)
 - 1 email
 - 2 password
-```shell
+```http
  https://imdb-fastapi.herokuapp.com/accounts/login
 ```
 - Add Movie (Admin)
@@ -46,7 +46,7 @@ run project
 - 3 genre
 - 4 imdb_score
 - 5 name
-```shell
+```http
  https://imdb-fastapi.herokuapp.com/imdb/movies/{id}
 ```
 - Update Movie (Admin)
@@ -55,19 +55,19 @@ run project
 - 3 genre
 - 4 imdb_score
 - 5 name
-```shell
+```http
  https://imdb-fastapi.herokuapp.com/imdb/movies/{id}
 ```
 - Delete Movie (Admin)
-```shell
+```http
  https://imdb-fastapi.herokuapp.com/imdb/movies/{id}
 ```
 - Search Movie (Admin)
-```shell
+```http
  https://imdb-fastapi.herokuapp.com/imdb/movies/search
 ```
 - Search Movie (User)
-```shell
+```http
  https://imdb-fastapi.herokuapp.com/imdb/movies/search
 ```
 
