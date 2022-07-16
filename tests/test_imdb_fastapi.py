@@ -19,16 +19,9 @@ login_data = {
     "password": "123456"
 }
 
-login_data_failed = {
-    "email": "dummy@gmail.com",
-    "password": "wrong_password"
-}
-
 def test_login():
     response = client.post("/accounts/login", json=login_data)
     assert response.status_code == 200
-
-
 
 def test_root():
     response = client.get("/")
